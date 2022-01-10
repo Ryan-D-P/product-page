@@ -1,0 +1,50 @@
+.Description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0rem 1rem;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+    .Description {
+        padding: 0rem 3rem;
+        gap: 50px;
+    }
+}
+
+.Description__company {
+    color: orange;
+    text-align: left;
+}
+
+.Description__product-name, .Description__product-description {
+    text-align: left;
+}
+
+.Description__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (min-width: 1440px) {
+    .Description__price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+.Description__actual-price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Description__discount {
+    background-color: rgba(255, 184, 51, 0.6);
+    color: hsl(30, 100%, 50%);
+    padding: 0.3rem;
+    border-radius: 10px;
+}

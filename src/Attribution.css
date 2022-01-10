@@ -1,0 +1,9 @@
+.Attribution {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.Attribution, .Attribution p, .Attribution a {
+    font-size: 16px;
+}

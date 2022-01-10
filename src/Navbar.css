@@ -1,0 +1,119 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+@media screen and (min-width: 1440px) {
+    .Navbar {
+        padding: 1rem 3rem;
+    }
+}
+
+.Navbar__mobile-nav-container {
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 70%;
+    min-height: 100vh;
+    padding: 0.5rem 1rem;
+    transition: transform ease-in-out 250ms;
+    transform: translateX(0%);
+}
+
+@media screen and (min-width: 1440px) {
+    .Navbar__mobile-nav-container {
+        display: none;
+    }
+}
+
+.hidden {
+    transform: translateX(-100%);
+}
+
+.Navbar__close-container {
+    display: flex;
+}
+
+.Navbar__close {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+
+.Navbar__contents-container {
+    margin-top: 50px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+    .Navbar__close, .Navbar__contents-container {
+        display: none;
+    }
+}
+
+.Navbar__links-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.Navbar__profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.Navbar__profile-image > img {
+    width: 30px;
+    height: 30px;
+}
+
+@media screen and (min-width: 1440px) {
+    .Navbar__profile-image > img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.Navbar__hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.Navbar__hamburger > div {
+    width: 15px;
+    height: 4px;
+    background-color: grey;
+}
+
+@media screen and (min-width: 1440px) {
+    .Navbar__hamburger {
+        display: none;
+    }
+}
+
+.Navbar__links {
+    display: none;
+}
+
+@media screen and (min-width: 1440px) {
+    .Navbar__links {
+        display: flex;
+        gap: 50px;
+    }
+}
+
+.Navbar__profile-container {
+    display: flex;
+}
