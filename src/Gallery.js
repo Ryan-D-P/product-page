@@ -9,13 +9,14 @@ import product2Thumbnail from "./images/image-product-2-thumbnail.jpg";
 import product3Thumbnail from "./images/image-product-3-thumbnail.jpg";
 import product4Thumbnail from "./images/image-product-4-thumbnail.jpg";
 import "./Gallery.css";
-import { useState } from "react";
 
 const Gallery = () => {
-    const [selectedImage, setSelectedImage] = useState(product1);
+    const changeSelected = (e, selectedImage) => {
+        // Change image shown as selected
+        document.querySelector(".show-selected").classList.remove("show-selected");
+        document.querySelector(`[data-image-index=${selectedImage}]`).classList.add("show-selected");
 
-    const changeSelectedImage = (e, image) => {
-        setSelectedImage(image);
+        // Change selected thumbnail
         document.querySelector(".selected").classList.remove("selected");
         e.target.parentElement.classList.add("selected");
     }
@@ -29,20 +30,23 @@ const Gallery = () => {
                 <div className="Gallery__selector-arrow-right">
                     <img src={right} alt="right-arrow" />
                 </div>
-                <img src={selectedImage} alt="selected" />
+                <img src={product1} alt="selected-image1" className="show-selected" data-image-index={"image1"} />
+                <img src={product2} alt="selected-image2" data-image-index={"image2"} />
+                <img src={product3} alt="selected-image3" data-image-index={"image3"} />
+                <img src={product4} alt="selected-image4" data-image-index={"image4"} />
             </div>
             <div className="Gallery__selector-wrapper">
                 <div className="Gallery__selector-container">
-                    <div className="Gallery__selector selected" onClick={(e) => changeSelectedImage(e, product1)}>
+                    <div className="Gallery__selector selected" onClick={(e) => changeSelected(e, "image1")}>
                         <img src={product1Thumbnail} alt="selector1" />
                     </div>
-                    <div className="Gallery__selector" onClick={(e) => changeSelectedImage(e, product2)}>
+                    <div className="Gallery__selector" onClick={(e) => changeSelected(e, "image2")}>
                         <img src={product2Thumbnail} alt="selector2" />
                     </div>
-                    <div className="Gallery__selector" onClick={(e) => changeSelectedImage(e, product3)}>
+                    <div className="Gallery__selector" onClick={(e) => changeSelected(e, "image3")}>
                         <img src={product3Thumbnail} alt="selector3" />
                     </div>
-                    <div className="Gallery__selector" onClick={(e) => changeSelectedImage(e, product4)}>
+                    <div className="Gallery__selector" onClick={(e) => changeSelected(e, "image4")}>
                         <img src={product4Thumbnail} alt="selector4" />
                     </div>
                 </div>
