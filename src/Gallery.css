@@ -54,7 +54,7 @@
     display: none;
 }
 
-.Gallery__selected-image, .Gallery__selector {
+.Gallery__selected-image, .Gallery__selector, .selected {
     border-radius: 20px;
     overflow: hidden;
     display: flex;
@@ -76,5 +76,8 @@
     }
     .Gallery__selector-container .selected > img {
         opacity: 0.3;
+    }
+    .Gallery__selector {
+        cursor: pointer;
     }
 }
