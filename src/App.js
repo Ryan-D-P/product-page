@@ -5,6 +5,7 @@ import Description from './Description';
 import Gallery from './Gallery';
 import Navbar from './Navbar';
 import Quantity from './Quantity';
+import CartMenu from './CartMenu';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           <Quantity />
         </div>
       </div>
+
+      <CartMenu />
+
       <Attribution />
     </div>
   );
