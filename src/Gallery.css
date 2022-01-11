@@ -42,6 +42,7 @@
 .Gallery__selector-arrow-left, .Gallery__selector-arrow-right {
     background-color: white;
     position: absolute;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,6 +59,10 @@
 
 .Gallery__selector-arrow-right {
     right: 25px;
+}
+
+.hidden-arrow {
+    display: none;
 }
 
 @media screen and (min-width: 1440px) {
@@ -85,6 +90,7 @@
     .Gallery__selector-container {
         flex-grow: 1;
         display: flex;
+        gap: 10px;
         justify-content: space-between;
     }
     .Gallery__selector-container .selected {

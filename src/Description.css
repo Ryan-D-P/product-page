@@ -45,6 +45,7 @@
 .Description__discount {
     background-color: rgba(255, 184, 51, 0.6);
     color: hsl(30, 100%, 50%);
-    padding: 0.3rem;
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    padding: 0.3em;
     border-radius: 10px;
 }
