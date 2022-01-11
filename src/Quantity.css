@@ -16,6 +16,7 @@
     background-color: hsl(0, 0%, 90%);
     display: flex;
     align-items: center;
+    font-weight: 700;
 }
 
 .Quantity__selector-minus, .Quantity__selector-plus {
@@ -25,6 +26,7 @@
     align-items: center;
     font-size: clamp(1.6rem, 1vw, 2rem);
     padding: 1em;
+    cursor: pointer;
 }
 
 .Quantity__selector-value {
@@ -39,6 +41,7 @@
     gap: 10px;
     font-size: clamp(1.6rem, 1vw, 2rem);
     padding: 1em;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1440px) {

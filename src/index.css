@@ -51,6 +51,7 @@ a {
   .container {
     flex-direction: row;
     gap: 200px;
+    margin-top: 50px;
   }
   .container__column1, .container__column2 {
     flex-basis: 50%;
