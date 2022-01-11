@@ -78,11 +78,14 @@
 }
 
 .Navbar__profile-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
 }
 
-.profile-active {
-    outline: 3px solid hsl(30, 100%, 50%);
+.Navbar__profile-image:hover {
+    outline: 5px solid hsl(30, 100%, 50%);
 }
 
 .Navbar__profile-image > img {
