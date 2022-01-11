@@ -42,6 +42,10 @@ a {
   color: black;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   display: flex;
   flex-direction: column;
