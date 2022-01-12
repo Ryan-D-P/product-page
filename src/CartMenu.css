@@ -18,6 +18,12 @@
     border-bottom: 1px solid black;
 }
 
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .cart-items-list > li {
     display: flex;
     gap: 10px;
@@ -36,6 +42,12 @@
 
 .cart-item__total-price {
     font-weight: 700;
+}
+
+.cart-item__delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart-item__delete > img {
