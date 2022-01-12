@@ -30,9 +30,12 @@ function App() {
       quantity: 10,
     },
   ]);
-
   // Delete a product from the cart menu and update the state
-  const deleteProduct = (product) => setCartProducts(cartProducts.filter(({ id }) => id !== product));;
+  const deleteProduct = (product) => setCartProducts(cartProducts.filter(({ id }) => id !== product));
+  
+  // Manages the currently selected product quantity state (user input)
+  const [currentQuantity, setCurrentQuantity] = useState(0);
+  const updateQuantity = (value) => setCurrentQuantity(value);
 
   return (
     <div className="App">
@@ -43,7 +46,7 @@ function App() {
         </div>
         <div className="container__column2">
           <Description />
-          <Quantity />
+          <Quantity currentQuantity={ currentQuantity } updateQuantity={ updateQuantity } />
         </div>
       </div>
       <CartMenu cartProducts={ cartProducts } deleteProduct={ deleteProduct } />
