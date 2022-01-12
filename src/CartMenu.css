@@ -24,6 +24,12 @@
     gap: 30px;
 }
 
+.cart-items-list > p {
+    color: grey;
+    text-align: center;
+    font-weight: 700;
+}
+
 .cart-items-list > li {
     display: flex;
     gap: 10px;
