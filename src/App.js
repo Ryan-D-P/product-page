@@ -31,6 +31,9 @@ function App() {
     },
   ]);
 
+  // Delete a product from the cart menu and update the state
+  const deleteProduct = (product) => setCartProducts(cartProducts.filter(({ id }) => id !== product));;
+
   return (
     <div className="App">
       <Navbar />
@@ -43,9 +46,7 @@ function App() {
           <Quantity />
         </div>
       </div>
-
-      <CartMenu cartProducts={ cartProducts } />
-
+      <CartMenu cartProducts={ cartProducts } deleteProduct={ deleteProduct } />
       <Attribution />
     </div>
   );
