@@ -43,6 +43,10 @@ a {
   padding: 1em;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   display: flex;
   flex-direction: column;

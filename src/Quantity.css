@@ -34,7 +34,7 @@
 }
 
 .Quantity__cart {
-    background-color: orange;
+    background-color: hsl(30, 100%, 50%);
     color: white;
     display: flex;
     justify-content: center;
