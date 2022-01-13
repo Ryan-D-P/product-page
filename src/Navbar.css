@@ -85,7 +85,7 @@
 }
 
 .Navbar__profile-image:hover {
-    outline: 5px solid hsl(30, 100%, 50%);
+    outline: 5px solid hsl(25, 100%, 50%);
 }
 
 .Navbar__profile-image > img {
