@@ -2,9 +2,9 @@ import product1Thumbnail from "./images/image-product-1-thumbnail.jpg";
 import deleteIcon from "./images/icon-delete.svg";
 import "./CartMenu.css";
 
-const CartMenu = ({ cartProducts, deleteProduct }) => {
+const CartMenu = ({ cartProducts, deleteProduct, isActive }) => {
     return (
-        <div className="CartMenu">
+        <div className={ `${isActive} CartMenu` }>
             <h2 className="cart-menu-title">Cart</h2>
             <ul className="cart-items-list">
                 { cartProducts.map((product) => (

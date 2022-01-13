@@ -5,18 +5,15 @@ import cart from "./images/icon-cart.svg";
 import profile from "./images/image-avatar.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
-const Navbar = (props) => {
-    const [mobileNav, setMobileNav] = useState(false);
-
+const Navbar = ({ openCartMenu }) => {
     return (
         <nav className="Navbar">
             <div className="Navbar__links-container">
                 <div className="Navbar__mobile-nav-container hidden">
                     <div className="Navbar__close-container">
                         <div className="Navbar__close"  onClick={ () => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden") }>
-                            <img src={close} alt="close-menu" />
+                            <img src={ close } alt="close-menu" />
                         </div>
                     </div>
                     <div className="Navbar__contents-container">
@@ -29,10 +26,10 @@ const Navbar = (props) => {
                     </div>
                 </div>
                 <div className="Navbar__hamburger" onClick={ () => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden") }>
-                    <img src={hamburger} alt="hamburger-menu" />
+                    <img src={ hamburger } alt="hamburger-menu" />
                 </div>
                 <div className="Navbar__title">
-                    <img src={logo} alt="company logo" />
+                    <img src={ logo } alt="company logo" />
                 </div>
                 <div className="Navbar__links">
                     {/* <Link to="/">Collections</Link> */}
@@ -44,11 +41,11 @@ const Navbar = (props) => {
                 </div>
             </div>
             <div className="Navbar__profile-container">
-                <div className="Navbar__profile-cart">
-                    <img src={cart} alt="cart icon" />
+                <div className="Navbar__profile-cart" onClick={ openCartMenu }>
+                    <img src={ cart } alt="cart icon" />
                 </div>
                 <div className="Navbar__profile-image">
-                    <img src={profile} alt="profile-image" />
+                    <img src={ profile } alt="profile-image" />
                 </div>
             </div>
         </nav>
