@@ -34,10 +34,15 @@ function App() {
   const [currentQuantity, setCurrentQuantity] = useState(0);
   const updateQuantity = (value) => setCurrentQuantity(value);
 
+  // State to manage whether cart menu is active
+  const [isActive, setIsActive] = useState("inactive");
+  const openCartMenu = () => setIsActive("active");
+  const closeCartMenu = () => setIsActive("inactive");
+
   return (
     <div className="App">
-      <Navbar />
-      <div className="container">
+      <Navbar openCartMenu={ openCartMenu } />
+      <div className="container" onClick={ closeCartMenu }>
         <div className="container__column1">
           <Gallery />
         </div>
@@ -46,7 +51,7 @@ function App() {
           <Quantity currentQuantity={ currentQuantity } updateQuantity={ updateQuantity } addProduct={ addProduct } />
         </div>
       </div>
-      <CartMenu cartProducts={ cartProducts } deleteProduct={ deleteProduct } />
+      <CartMenu cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } />
       <Attribution />
     </div>
   );
