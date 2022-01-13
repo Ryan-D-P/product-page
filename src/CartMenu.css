@@ -2,18 +2,28 @@
     background-color: hsl(0, 0%, 100%);
     position: absolute;
     z-index: 1;
-    top: 80px;
-    right: 10px;
+    left: 5%;
+    top: 45px;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    width: 500px;
+    width: min(90%, 500px);
     outline: 1px solid hsl(0, 0%, 70%);
     box-shadow: 0px 0px 20px hsl(0, 0%, 20%);
     border-radius: 7px;
     padding: 2rem;
     text-align: left;
 }
+
+@media screen and (min-width: 900px) {
+    .CartMenu {
+        top: 80px;
+        left: initial;
+        right: 10px;
+        margin: 0;
+    }
+}
+
 
 .cart-menu-title {
     border-bottom: 1px solid black;

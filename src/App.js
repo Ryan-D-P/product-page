@@ -26,8 +26,6 @@ function App() {
       quantity: currentQuantity,
     });
 
-    console.log(cartProducts);
-
     setCartProducts(cartProducts);
     setCurrentQuantity(0);
   }
