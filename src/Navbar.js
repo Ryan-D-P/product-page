@@ -15,7 +15,7 @@ const Navbar = (props) => {
             <div className="Navbar__links-container">
                 <div className="Navbar__mobile-nav-container hidden">
                     <div className="Navbar__close-container">
-                        <div className="Navbar__close"  onClick={() => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden")}>
+                        <div className="Navbar__close"  onClick={ () => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden") }>
                             <img src={close} alt="close-menu" />
                         </div>
                     </div>
@@ -28,7 +28,7 @@ const Navbar = (props) => {
                         <div><a href="/">Contact</a></div>
                     </div>
                 </div>
-                <div className="Navbar__hamburger" onClick={() => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden")}>
+                <div className="Navbar__hamburger" onClick={ () => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden") }>
                     <img src={hamburger} alt="hamburger-menu" />
                 </div>
                 <div className="Navbar__title">

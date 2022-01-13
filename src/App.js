@@ -10,28 +10,23 @@ import { useState } from 'react/cjs/react.development';
 
 function App() {
   // JSON-like object to store the products in the cart
-  const [cartProducts, setCartProducts] = useState([
-    {
-      id: 1,
-      name: "Fall Limited Edition Sneakers",
-      price: 125.00,
-      quantity: 3,
-    },
-    {
-      id: 2,
-      name: "Fall Limited Edition Sneakers",
-      price: 125.00,
-      quantity: 2,
-    },
-    {
-      id: 3,
-      name: "Fall Limited Edition Sneakers",
-      price: 125.00,
-      quantity: 10,
-    },
-  ]);
+  const [cartProducts, setCartProducts] = useState([]);
   // Delete a product from the cart menu and update the state
   const deleteProduct = (product) => setCartProducts(cartProducts.filter(({ id }) => id !== product));
+  // Set the id of a new product
+  let id = 1;
+  // Add a product to the cart when a user clicks the 'Add to cart' button
+  const addProduct = () => {
+    cartProducts.push({
+      id: id,
+      name: "Fall Limited Edition Sneakers",
+      price: 125.00,
+      quantity: currentQuantity,
+    });
+    setCartProducts(cartProducts);
+    id += 1;
+    setCurrentQuantity(0);
+  }
   
   // Manages the currently selected product quantity state (user input)
   const [currentQuantity, setCurrentQuantity] = useState(0);
@@ -46,7 +41,7 @@ function App() {
         </div>
         <div className="container__column2">
           <Description />
-          <Quantity currentQuantity={ currentQuantity } updateQuantity={ updateQuantity } />
+          <Quantity currentQuantity={ currentQuantity } updateQuantity={ updateQuantity } addProduct={ addProduct } />
         </div>
       </div>
       <CartMenu cartProducts={ cartProducts } deleteProduct={ deleteProduct } />
