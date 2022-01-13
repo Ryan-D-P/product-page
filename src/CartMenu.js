@@ -30,7 +30,7 @@ const CartMenu = ({ cartProducts, deleteProduct }) => {
                         </div>
                     </li>
                 )) }
-                { cartProducts.length < 1 && (<p>Your cart is empty.</p>) }
+                { !cartProducts.length && (<p>Your cart is empty.</p>) }
             </ul>
             <div className="cart-menu-checkout">
                 <p>Checkout</p>

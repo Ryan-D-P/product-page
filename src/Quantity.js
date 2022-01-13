@@ -17,7 +17,7 @@ const Quantity = ({ currentQuantity, updateQuantity, addProduct }) => {
                     <img src={ plus } alt="plus" />
                 </div>
             </div>
-            <div className="Quantity__cart" onClick={ addProduct }>
+            <div className="Quantity__cart" onClick={ currentQuantity && addProduct }>
                 <div className="Quantity__cart-icon">
                     <img src={ cart } alt="cart icon" />
                 </div>

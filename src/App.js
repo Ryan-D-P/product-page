@@ -13,18 +13,22 @@ function App() {
   const [cartProducts, setCartProducts] = useState([]);
   // Delete a product from the cart menu and update the state
   const deleteProduct = (product) => setCartProducts(cartProducts.filter(({ id }) => id !== product));
-  // Set the id of a new product
-  let id = 1;
+  // Manage the state for the id of a new product
+  const [id, setId] = useState(0);
   // Add a product to the cart when a user clicks the 'Add to cart' button
   const addProduct = () => {
+    setId(id + 1);
+
     cartProducts.push({
-      id: id,
+      id,
       name: "Fall Limited Edition Sneakers",
       price: 125.00,
       quantity: currentQuantity,
     });
+
+    console.log(cartProducts);
+
     setCartProducts(cartProducts);
-    id += 1;
     setCurrentQuantity(0);
   }
   
