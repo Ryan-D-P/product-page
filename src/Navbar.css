@@ -67,6 +67,7 @@
 }
 
 .Navbar__profile-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,6 +76,24 @@
 
 .Navbar__profile-cart, .Navbar__profile-image {
     cursor: pointer;
+}
+
+.Navbar__cart-count {
+    background-color: hsl(25, 100%, 50%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 15px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+}
+
+.Navbar__cart-count > p {
+    color: white;
+    font-size: 1.6rem;
 }
 
 .Navbar__profile-image {

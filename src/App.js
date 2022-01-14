@@ -28,7 +28,7 @@ function App() {
 
     setCartProducts(cartProducts);
     setCurrentQuantity(0);
-  }
+  };
   
   // Manages the currently selected product quantity state (user input)
   const [currentQuantity, setCurrentQuantity] = useState(0);
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar openCartMenu={ openCartMenu } />
+      <Navbar openCartMenu={ openCartMenu } cartProducts={ cartProducts } />
       <div className="container" onClick={ closeCartMenu }>
         <div className="container__column1">
           <Gallery />
