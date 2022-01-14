@@ -44,9 +44,13 @@ const Navbar = ({ openCartMenu, cartProducts }) => {
                 <div className="Navbar__profile-cart" onClick={ openCartMenu }>
                     <img src={ cart } alt="cart icon" />
                 </div>
-                <div className="Navbar__cart-count">
-                    <p>{ cartProducts.length }</p>
-                </div>
+
+                { cartProducts.length > 0 && (
+                    <div className="Navbar__cart-count">
+                        <p>{ cartProducts.length }</p>
+                    </div>
+                ) }
+                
                 <div className="Navbar__profile-image">
                     <img src={ profile } alt="profile-image" />
                 </div>
