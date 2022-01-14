@@ -6,7 +6,7 @@ import profile from "./images/image-avatar.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ openCartMenu, cartProducts }) => {
+const Navbar = ({ openCartMenu, cartProducts, totalProductCount }) => {
     return (
         <nav className="Navbar">
             <div className="Navbar__links-container">
@@ -46,11 +46,11 @@ const Navbar = ({ openCartMenu, cartProducts }) => {
                 </div>
 
                 { cartProducts.length > 0 && (
-                    <div className="Navbar__cart-count">
-                        <p>{ cartProducts.length }</p>
+                    <div className="Navbar__cart-count" onClick={ openCartMenu }>
+                        <p>{ cartProducts.reduce((previousCount, current) => previousCount + current.quantity, 0) }</p>
                     </div>
                 ) }
-                
+
                 <div className="Navbar__profile-image">
                     <img src={ profile } alt="profile-image" />
                 </div>

@@ -28,7 +28,7 @@ function App() {
 
     setCartProducts(cartProducts);
     setCurrentQuantity(0);
-  }
+  };
   
   // Manages the currently selected product quantity state (user input)
   const [currentQuantity, setCurrentQuantity] = useState(0);
