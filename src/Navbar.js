@@ -6,13 +6,13 @@ import profile from "./images/image-avatar.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ openCartMenu, cartProducts, totalProductCount }) => {
+const Navbar = ({ openCartMenu, cartProducts }) => {
     return (
         <nav className="Navbar">
             <div className="Navbar__links-container">
                 <div className="Navbar__mobile-nav-container hidden">
                     <div className="Navbar__close-container">
-                        <div className="Navbar__close"  onClick={ () => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden") }>
+                        <div className="Navbar__close" onClick={ () => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden") }>
                             <img src={ close } alt="close-menu" />
                         </div>
                     </div>
@@ -45,11 +45,14 @@ const Navbar = ({ openCartMenu, cartProducts, totalProductCount }) => {
                     <img src={ cart } alt="cart icon" />
                 </div>
 
-                { cartProducts.length > 0 && (
-                    <div className="Navbar__cart-count" onClick={ openCartMenu }>
-                        <p>{ cartProducts.reduce((previousCount, current) => previousCount + current.quantity, 0) }</p>
-                    </div>
-                ) }
+                {
+                    // If one or more cart products exist: show the total product count on the cart icon
+                    cartProducts.length > 0 && (
+                        <div className="Navbar__cart-count" onClick={ openCartMenu }>
+                            <p>{ cartProducts.reduce((previousCount, current) => previousCount + current.quantity, 0) }</p>
+                        </div>
+                    ) 
+                }
 
                 <div className="Navbar__profile-image">
                     <img src={ profile } alt="profile-image" />

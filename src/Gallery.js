@@ -9,6 +9,7 @@ import product2Thumbnail from "./images/image-product-2-thumbnail.jpg";
 import product3Thumbnail from "./images/image-product-3-thumbnail.jpg";
 import product4Thumbnail from "./images/image-product-4-thumbnail.jpg";
 import "./Gallery.css";
+import LightboxGallery from "./LightboxGallery";
 
 const Gallery = () => {
     // Object to display and change images on mobile
@@ -47,33 +48,35 @@ const Gallery = () => {
     return (
         <section className="Gallery">
             <div className="Gallery__selected-image">
-                <div className="Gallery__selector-arrow-left hidden-arrow" onClick={(e) => changeSelectedMobile(e)} data-direction={"left"}>
-                    <img src={left} alt="left-arrow" data-direction={"left"} />
+                <div className="Gallery__selector-arrow-left hidden-arrow" onClick={ (e) => changeSelectedMobile(e) } data-direction={ "left" }>
+                    <img src={ left } alt="left-arrow" data-direction={ "left" } />
                 </div>
-                <div className="Gallery__selector-arrow-right" onClick={(e) => changeSelectedMobile(e)} data-direction={"right"}>
-                    <img src={right} alt="right-arrow" data-direction={"right"} />
+                <div className="Gallery__selector-arrow-right" onClick={ (e) => changeSelectedMobile(e) } data-direction={ "right" }>
+                    <img src={ right } alt="right-arrow" data-direction={ "right" } />
                 </div>
-                <img src={product1} alt="selected-image1" className="show-selected" data-image-index={"image1"} />
-                <img src={product2} alt="selected-image2" data-image-index={"image2"} />
-                <img src={product3} alt="selected-image3" data-image-index={"image3"} />
-                <img src={product4} alt="selected-image4" data-image-index={"image4"} />
+                <img src={ product1 } alt="selected-image1" className="show-selected" data-image-index={ "image1" } />
+                <img src={ product2 } alt="selected-image2" data-image-index={ "image2" } />
+                <img src={ product3 } alt="selected-image3" data-image-index={ "image3" } />
+                <img src={ product4 } alt="selected-image4" data-image-index={ "image4" } />
             </div>
             <div className="Gallery__selector-wrapper">
                 <div className="Gallery__selector-container">
-                    <div className="Gallery__selector selected" onClick={(e) => changeSelected(e, "image1")}>
-                        <img src={product1Thumbnail} alt="selector1" />
+                    <div className="Gallery__selector selected" onClick={ (e) => changeSelected(e, "image1") }>
+                        <img src={ product1Thumbnail } alt="selector1" />
                     </div>
-                    <div className="Gallery__selector" onClick={(e) => changeSelected(e, "image2")}>
-                        <img src={product2Thumbnail} alt="selector2" />
+                    <div className="Gallery__selector" onClick={ (e) => changeSelected(e, "image2") }>
+                        <img src={ product2Thumbnail } alt="selector2" />
                     </div>
-                    <div className="Gallery__selector" onClick={(e) => changeSelected(e, "image3")}>
-                        <img src={product3Thumbnail} alt="selector3" />
+                    <div className="Gallery__selector" onClick={ (e) => changeSelected(e, "image3") }>
+                        <img src={ product3Thumbnail } alt="selector3" />
                     </div>
-                    <div className="Gallery__selector" onClick={(e) => changeSelected(e, "image4")}>
-                        <img src={product4Thumbnail} alt="selector4" />
+                    <div className="Gallery__selector" onClick={ (e) => changeSelected(e, "image4") }>
+                        <img src={ product4Thumbnail } alt="selector4" />
                     </div>
                 </div>
             </div>
+
+            <LightboxGallery changeSelectedMobile={ changeSelectedMobile } changeSelected={ changeSelected } left={ left } right={ right } product1={ product1 } product2={ product2 } product3={ product3 } product4={ product4 } product1Thumbnail={ product1Thumbnail } product2Thumbnail={ product2Thumbnail } product3Thumbnail={ product3Thumbnail } product4Thumbnail={ product4Thumbnail } />
         </section>
     );
 }

@@ -1,7 +1,6 @@
 .Gallery {
     display: flex;
     flex-direction: column;
-    position: relative;
     padding: 0rem 1rem;
 }
 
@@ -17,16 +16,19 @@
     min-height: 265px;
 }
 
-.Gallery__selected-image > img {
+.Gallery__selected-image > img, .LightboxGallery__selected-image > img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    max-height: 265px;
     transition: opacity ease-in-out 750ms;
 }
 
-.Gallery__selected-image > img:not(.show-selected) {
+.Gallery__selected-image > img {
+    max-height: 265px;
+}
+
+.Gallery__selected-image > img:not(.show-selected), .LightboxGallery__selected-image > img:not(.show-selected) {
     opacity: 0;
 }
 
@@ -39,18 +41,21 @@
     }
 }
 
-.Gallery__selector-arrow-left, .Gallery__selector-arrow-right {
+.Gallery__selector-arrow-left, .Gallery__selector-arrow-right, .LightboxGallery__selector-arrow-left, .LightboxGallery__selector-arrow-right {
     background-color: white;
-    position: absolute;
-    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 50%;
-    transform: translateY(-50%);
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+.Gallery__selector-arrow-left, .Gallery__selector-arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
 .Gallery__selector-arrow-left {
@@ -75,7 +80,7 @@
     display: none;
 }
 
-.Gallery__selected-image, .Gallery__selector, .selected {
+.Gallery__selected-image, .Gallery__selector, .selected, .LightboxGallery__selected-image, .LightboxGallery__selector-thumbnail {
     border-radius: 20px;
     overflow: hidden;
     display: flex;
@@ -93,16 +98,16 @@
         gap: 10px;
         justify-content: space-between;
     }
-    .Gallery__selector-container .selected {
+    .Gallery__selector-container .selected, .LightboxGallery__gallery-selector .selected {
         outline: 5px solid hsl(30, 100%, 50%);
     }
     .Gallery__selector-container .selected > img {
         opacity: 0.3;
     }
-    .Gallery__selector {
+    .Gallery__selector, .LightboxGallery__selector-thumbnail {
         cursor: pointer;
     }
-    .Gallery__selector > img {
+    .Gallery__selector > img, .LightboxGallery__selector-thumbnail > img {
         transition: opacity ease-in-out 750ms;
     }
 }
