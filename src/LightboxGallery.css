@@ -56,13 +56,13 @@
     right: 0;
 }
 
-.LightboxGallery__gallery-selector {
+.LightboxGallery__selector-container {
     display: flex;
     justify-content: space-between;
     gap: 10px;
     padding: 0rem 3rem;
 }
 
-.LightboxGallery__gallery-selector .selected > img {
+.LightboxGallery__selector-container .selected > img {
     opacity: 0.6;
 }

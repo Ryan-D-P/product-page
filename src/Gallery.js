@@ -18,30 +18,32 @@ const Gallery = () => {
         imageIndex: 0,
     };
 
-    const changeSelectedMobile = (e) => {
+    // Function to change the target gallery's displayed image using a directional arrow index
+    const changeSelectedMobile = (e, targetGallery="Gallery") => {
         // Get the arrow index of the newly selected image
         const direction = e.target.dataset.direction;
         const selectedImage = (direction === "right") ? mobileImages.imageIndex += 1 : mobileImages.imageIndex -= 1;
 
         // Ensure displayed arrow icons are consistent with newly selected image index
-        if (selectedImage === 0) document.querySelector(".Gallery__selector-arrow-left").classList.add("hidden-arrow");
-        else if (selectedImage === 3) document.querySelector(".Gallery__selector-arrow-right").classList.add("hidden-arrow");
+        if (selectedImage === 0) document.querySelector(`.${targetGallery}__selector-arrow-left`).classList.add("hidden-arrow");
+        else if (selectedImage === 3) document.querySelector(`.${targetGallery}__selector-arrow-right`).classList.add("hidden-arrow");
         else document.querySelector(".hidden-arrow")?.classList.remove("hidden-arrow");
 
-        // Display the newly selected image
-        changeSelected(null, mobileImages.imageList[selectedImage]);
+        // Display the newly selected image to the target gallery 
+        changeSelected(null, mobileImages.imageList[selectedImage], targetGallery);
     }
 
-    const changeSelected = (e, selectedImage) => {
-        // Change image shown as selected
-        document.querySelector(".show-selected").classList.remove("show-selected");
-        document.querySelector(`[data-image-index=${selectedImage}]`).classList.add("show-selected");
+    // Function to change the target gallery's displayed image to the selected image
+    const changeSelected = (e, selectedImage, targetGallery="Gallery") => {
+        // Change the shown (target gallery) image to the selected thumbnail
+        document.querySelector(`.${targetGallery}__selected-image .show-selected`).classList.remove("show-selected");
+        document.querySelector(`.${targetGallery}__image[data-image-index=${selectedImage}]`).classList.add("show-selected");
 
-        // Early exit if no event object passed
+        // Early exit if no event object passed (no thumbnail was clicked)
         if (!e) return;
 
-        // Change selected thumbnail
-        document.querySelector(".selected").classList.remove("selected");
+        // Change the currently selected thumbnail
+        document.querySelector(`.${targetGallery}__selector-container .selected`).classList.remove("selected");
         e.target.parentElement.classList.add("selected");
     }
 
@@ -54,10 +56,10 @@ const Gallery = () => {
                 <div className="Gallery__selector-arrow-right" onClick={ (e) => changeSelectedMobile(e) } data-direction={ "right" }>
                     <img src={ right } alt="right-arrow" data-direction={ "right" } />
                 </div>
-                <img src={ product1 } alt="selected-image1" className="show-selected" data-image-index={ "image1" } />
-                <img src={ product2 } alt="selected-image2" data-image-index={ "image2" } />
-                <img src={ product3 } alt="selected-image3" data-image-index={ "image3" } />
-                <img src={ product4 } alt="selected-image4" data-image-index={ "image4" } />
+                <img src={ product1 } alt="selected-image1" className="Gallery__image show-selected" data-image-index={ "image1" } />
+                <img src={ product2 } alt="selected-image2" className="Gallery__image" data-image-index={ "image2" } />
+                <img src={ product3 } alt="selected-image3" className="Gallery__image" data-image-index={ "image3" } />
+                <img src={ product4 } alt="selected-image4" className="Gallery__image" data-image-index={ "image4" } />
             </div>
             <div className="Gallery__selector-wrapper">
                 <div className="Gallery__selector-container">
