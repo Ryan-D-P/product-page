@@ -12,25 +12,25 @@ import "./Gallery.css";
 import LightboxGallery from "./LightboxGallery";
 
 const Gallery = () => {
-    // Object to display and change images on mobile
-    const mobileImages = {
+    // Object to display and change images using directional arrows
+    const arrowImages = {
         imageList: ["image1", "image2", "image3", "image4"],
         imageIndex: 0,
     };
 
     // Function to change the target gallery's displayed image using a directional arrow index
-    const changeSelectedMobile = (e, targetGallery="Gallery") => {
+    const changeSelectedByArrow = (e, targetGallery="Gallery") => {
         // Get the arrow index of the newly selected image
         const direction = e.target.dataset.direction;
-        const selectedImage = (direction === "right") ? mobileImages.imageIndex += 1 : mobileImages.imageIndex -= 1;
+        const selectedImage = (direction === "right") ? arrowImages.imageIndex += 1 : arrowImages.imageIndex -= 1;
 
         // Ensure displayed arrow icons are consistent with newly selected image index
         if (selectedImage === 0) document.querySelector(`.${targetGallery}__selector-arrow-left`).classList.add("hidden-arrow");
         else if (selectedImage === 3) document.querySelector(`.${targetGallery}__selector-arrow-right`).classList.add("hidden-arrow");
-        else document.querySelector(".hidden-arrow")?.classList.remove("hidden-arrow");
+        else document.querySelector(`.${targetGallery}__selected-image .hidden-arrow`)?.classList.remove("hidden-arrow");
 
         // Display the newly selected image to the target gallery 
-        changeSelected(null, mobileImages.imageList[selectedImage], targetGallery);
+        changeSelected(null, arrowImages.imageList[selectedImage], targetGallery);
     }
 
     // Function to change the target gallery's displayed image to the selected image
@@ -50,10 +50,10 @@ const Gallery = () => {
     return (
         <section className="Gallery">
             <div className="Gallery__selected-image">
-                <div className="Gallery__selector-arrow-left hidden-arrow" onClick={ (e) => changeSelectedMobile(e) } data-direction={ "left" }>
+                <div className="Gallery__selector-arrow-left hidden-arrow" onClick={ (e) => changeSelectedByArrow(e) } data-direction={ "left" }>
                     <img src={ left } alt="left-arrow" data-direction={ "left" } />
                 </div>
-                <div className="Gallery__selector-arrow-right" onClick={ (e) => changeSelectedMobile(e) } data-direction={ "right" }>
+                <div className="Gallery__selector-arrow-right" onClick={ (e) => changeSelectedByArrow(e) } data-direction={ "right" }>
                     <img src={ right } alt="right-arrow" data-direction={ "right" } />
                 </div>
                 <img src={ product1 } alt="selected-image1" className="Gallery__image show-selected" data-image-index={ "image1" } />
@@ -78,7 +78,7 @@ const Gallery = () => {
                 </div>
             </div>
 
-            <LightboxGallery changeSelectedMobile={ changeSelectedMobile } changeSelected={ changeSelected } left={ left } right={ right } product1={ product1 } product2={ product2 } product3={ product3 } product4={ product4 } product1Thumbnail={ product1Thumbnail } product2Thumbnail={ product2Thumbnail } product3Thumbnail={ product3Thumbnail } product4Thumbnail={ product4Thumbnail } />
+            <LightboxGallery changeSelectedByArrow={ changeSelectedByArrow } changeSelected={ changeSelected } left={ left } right={ right } product1={ product1 } product2={ product2 } product3={ product3 } product4={ product4 } product1Thumbnail={ product1Thumbnail } product2Thumbnail={ product2Thumbnail } product3Thumbnail={ product3Thumbnail } product4Thumbnail={ product4Thumbnail } />
         </section>
     );
 }

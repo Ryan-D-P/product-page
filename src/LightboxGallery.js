@@ -1,7 +1,7 @@
 import close from "./images/icon-close.svg";
 import "./LightboxGallery.css";
 
-const LightboxGallery = ({ changeSelectedMobile, changeSelected, left, right, product1, product2, product3, product4, product1Thumbnail, product2Thumbnail, product3Thumbnail, product4Thumbnail }) => {
+const LightboxGallery = ({ changeSelectedByArrow, changeSelected, left, right, product1, product2, product3, product4, product1Thumbnail, product2Thumbnail, product3Thumbnail, product4Thumbnail }) => {
     return (
         <div className="LightboxGallery">
             <div className="LightboxGallery__flex-container">
@@ -12,10 +12,10 @@ const LightboxGallery = ({ changeSelectedMobile, changeSelected, left, right, pr
                 </div>
                 <div className="LightboxGallery__flex-row LightboxGallery__selected-image-row">
                     <div className="LightboxGallery__selected-image">
-                        <div className="LightboxGallery__selector-arrow-left hidden-arrow">
+                        <div className="LightboxGallery__selector-arrow-left hidden-arrow" onClick={ (e) => changeSelectedByArrow(e, "LightboxGallery") } data-direction={ "left" }>
                             <img src={ left } alt="left-arrow" data-direction={ "left" } />
                         </div>
-                        <div className="LightboxGallery__selector-arrow-right">
+                        <div className="LightboxGallery__selector-arrow-right" onClick={ (e) => changeSelectedByArrow(e, "LightboxGallery") } data-direction={ "right" }>
                             <img src={ right } alt="right-arrow" data-direction={ "right" } />
                         </div>
                         <img src={ product1 } alt="selected-image1" className="LightboxGallery__image show-selected" data-image-index={ "image1" } />
