@@ -29,6 +29,18 @@
     cursor: pointer;
 }
 
+.Quantity__selector-minus > img, .Quantity__selector-plus > img {
+    width: 40%;
+    height: 40%;
+}
+
+@media screen and (min-width: 1440px) {
+    .Quantity__selector-minus > img, .Quantity__selector-plus > img {
+        width: 70%;
+        height: 70%;
+    }
+}
+
 .Quantity__selector-value {
     flex-basis: 60%;
 }
@@ -38,10 +50,15 @@
     color: white;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
     font-size: clamp(1.6rem, 1vw, 2rem);
     padding: 1.5em;
     cursor: pointer;
+}
+
+.Quantity__cart:hover {
+    background-color: hsl(25, 100%, 70%);
 }
 
 @media screen and (min-width: 1440px) {
@@ -59,4 +76,10 @@
 
 .Quantity__selector, .Quantity__cart {
     border-radius: 10px;
+}
+
+.Quantity__cart-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

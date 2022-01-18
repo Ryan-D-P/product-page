@@ -46,6 +46,7 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
+    cursor: pointer;
 }
 
 .LightboxGallery__selector-arrow-left {
@@ -64,5 +65,5 @@
 }
 
 .LightboxGallery__selector-container .selected > img {
-    opacity: 0.6;
+    opacity: 0.7;
 }

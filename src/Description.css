@@ -47,6 +47,11 @@
     background-color: rgba(255, 184, 51, 0.6);
     color: hsl(30, 100%, 50%);
     font-size: clamp(1.6rem, 2vw, 2rem);
-    padding: 0.3em;
+    padding: 0.2em 0.6em;
     border-radius: 10px;
+}
+
+.Description__original-price {
+    color: hsl(0, 0%, 75%);
+    text-decoration: line-through;
 }

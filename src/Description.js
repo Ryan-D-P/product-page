@@ -15,7 +15,7 @@ const Description = () => {
             <div className="Description__price">
                 <div className="Description__actual-price-wrapper">
                     <div className="Description__actual-price">
-                        <p>$125.00</p>
+                        <h2>$125.00</h2>
                     </div>
                     <div className="Description__discount">
                         <p>50%</p>
