@@ -17,12 +17,11 @@ const Navbar = ({ openCartMenu, cartProducts }) => {
                         </div>
                     </div>
                     <div className="Navbar__contents-container">
-                        {/* <Link to="/">Collections</Link> */}
-                        <div><a href="/">Collections</a></div>
-                        <div><a href="/">Men</a></div>
-                        <div><a href="/">Women</a></div>
-                        <div><a href="/">About</a></div>
-                        <div><a href="/">Contact</a></div>
+                        <Link to="/">Collections</Link>
+                        <Link to="/men">Men</Link>
+                        <Link to="/women">Women</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/contact">Contact</Link>
                     </div>
                 </div>
                 <div className="Navbar__hamburger" onClick={ () => document.querySelector(".Navbar__mobile-nav-container").classList.toggle("hidden") }>
@@ -32,12 +31,11 @@ const Navbar = ({ openCartMenu, cartProducts }) => {
                     <img src={ logo } alt="company logo" />
                 </div>
                 <div className="Navbar__links">
-                    {/* <Link to="/">Collections</Link> */}
-                    <a href="/">Collections</a>
-                    <a href="/">Men</a>
-                    <a href="/">Women</a>
-                    <a href="/">About</a>
-                    <a href="/">Contact</a>
+                    <Link to="/">Collections</Link>
+                    <Link to="/men">Men</Link>
+                    <Link to="/women">Women</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/contact">Contact</Link>
                 </div>
             </div>
             <div className="Navbar__profile-container">
@@ -55,7 +53,7 @@ const Navbar = ({ openCartMenu, cartProducts }) => {
                 }
 
                 <div className="Navbar__profile-image">
-                    <img src={ profile } alt="profile-image" />
+                    <img src={ profile } alt="profile" />
                 </div>
             </div>
         </nav>

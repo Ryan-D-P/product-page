@@ -1,12 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import Attribution from './Attribution';
-import Description from './Description';
-import Gallery from './Gallery';
 import Navbar from './Navbar';
-import Quantity from './Quantity';
-import CartMenu from './CartMenu';
+import Collections from "./Collections";
+import Men from "./Men";
+import Women from "./Women";
+import About from "./About";
+import Contact from "./Contact";
 import { useState } from 'react/cjs/react.development';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   // JSON-like object to store the products in the cart
@@ -17,19 +16,19 @@ function App() {
   const [id, setId] = useState(0);
   // Add a product to the cart when a user clicks the 'Add to cart' button
   const addProduct = () => {
-    setId(id + 1);
+      setId(id + 1);
 
-    cartProducts.push({
-      id,
-      name: "Fall Limited Edition Sneakers",
-      price: 125.00,
-      quantity: currentQuantity,
-    });
+      cartProducts.push({
+          id,
+          name: "Fall Limited Edition Sneakers",
+          price: 125.00,
+          quantity: currentQuantity,
+      });
 
-    setCartProducts(cartProducts);
-    setCurrentQuantity(0);
+      setCartProducts(cartProducts);
+      setCurrentQuantity(0);
   };
-  
+
   // Manages the currently selected product quantity state (user input)
   const [currentQuantity, setCurrentQuantity] = useState(0);
   const updateQuantity = (value) => setCurrentQuantity(value);
@@ -40,20 +39,18 @@ function App() {
   const closeCartMenu = () => setIsActive("inactive");
 
   return (
-    <div className="App">
-      <Navbar openCartMenu={ openCartMenu } cartProducts={ cartProducts } />
-      <div className="container" onClick={ closeCartMenu }>
-        <div className="container__column1">
-          <Gallery />
-        </div>
-        <div className="container__column2">
-          <Description />
-          <Quantity currentQuantity={ currentQuantity } updateQuantity={ updateQuantity } addProduct={ addProduct } />
-        </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar openCartMenu={ openCartMenu } cartProducts={ cartProducts } />
+        <Routes>
+          <Route exact path="/" element={ <Collections closeCartMenu={ closeCartMenu } currentQuantity={ currentQuantity } updateQuantity={ updateQuantity } addProduct={ addProduct } cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } /> } />
+          <Route exact path="/men" element={ <Men /> } />
+          <Route exact path="/women" element={ <Women /> } />
+          <Route exact path="/about" element={ <About /> } />
+          <Route exact path="/contact" element={ <Contact /> } />
+        </Routes>
       </div>
-      <CartMenu cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } />
-      <Attribution />
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -26,7 +26,22 @@ img {
 }
 
 h1 {
-  font-size: clamp(3rem, 6vw, 5rem)
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.page-title {
+  color: hsl(25, 100%, 50%);
+}
+
+.page-title, .page-content {
+  text-align: center;
+}
+
+.Men, .Women, .About, .Contact {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 6rem 30rem;
 }
 
 h2 {

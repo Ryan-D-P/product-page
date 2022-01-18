@@ -43,6 +43,7 @@
 
 .Quantity__selector-value {
     flex-basis: 60%;
+    text-align: center;
 }
 
 .Quantity__cart {
