@@ -39,7 +39,7 @@ function App() {
   const closeCartMenu = () => setIsActive("inactive");
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={ "/product-page" }>
       <div className="App">
         <Navbar openCartMenu={ openCartMenu } cartProducts={ cartProducts } />
         <Routes>
