@@ -10,7 +10,7 @@ import product3Thumbnail from "./images/image-product-3-thumbnail.jpg";
 import product4Thumbnail from "./images/image-product-4-thumbnail.jpg";
 import "./Gallery.css";
 import LightboxGallery from "./LightboxGallery";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 const Gallery = () => {
     // State to show/hide the lightbox gallery
