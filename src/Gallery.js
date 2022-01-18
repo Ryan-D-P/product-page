@@ -24,27 +24,34 @@ const Gallery = () => {
         const direction = e.target.dataset.direction;
         const selectedImage = (direction === "right") ? arrowImages.imageIndex += 1 : arrowImages.imageIndex -= 1;
 
-        // Ensure displayed arrow icons are consistent with newly selected image index
-        if (selectedImage === 0) document.querySelector(`.${targetGallery}__selector-arrow-left`).classList.add("hidden-arrow");
-        else if (selectedImage === 3) document.querySelector(`.${targetGallery}__selector-arrow-right`).classList.add("hidden-arrow");
-        else document.querySelector(`.${targetGallery}__selected-image .hidden-arrow`)?.classList.remove("hidden-arrow");
-
         // Display the newly selected image to the target gallery 
-        changeSelected(null, arrowImages.imageList[selectedImage], targetGallery);
+        changeSelected(arrowImages.imageList[selectedImage], targetGallery);
     }
 
     // Function to change the target gallery's displayed image to the selected image
-    const changeSelected = (e, selectedImage, targetGallery="Gallery") => {
+    const changeSelected = (selectedImage, targetGallery="Gallery") => {
         // Change the shown (target gallery) image to the selected thumbnail
         document.querySelector(`.${targetGallery}__selected-image .show-selected`).classList.remove("show-selected");
         document.querySelector(`.${targetGallery}__image[data-image-index=${selectedImage}]`).classList.add("show-selected");
 
-        // Early exit if no event object passed (no thumbnail was clicked)
-        if (!e) return;
+        // Update the index of the currently selected image
+        arrowImages.imageIndex = Number(selectedImage.slice(-1) - 1);
+
+        // Ensure displayed arrow icons are consistent with newly selected image index
+        const leftArrowDOM = document.querySelector(`.${targetGallery}__selector-arrow-left`), rightArrowDOM = document.querySelector(`.${targetGallery}__selector-arrow-right`);
+        if (arrowImages.imageIndex === 0) {
+            leftArrowDOM.classList.add("hidden-arrow");
+            rightArrowDOM.classList.remove("hidden-arrow");
+        }
+        else if (arrowImages.imageIndex === 3) {
+            rightArrowDOM.classList.add("hidden-arrow");
+            leftArrowDOM.classList.remove("hidden-arrow");
+        }
+        else document.querySelector(`.${targetGallery}__selected-image .hidden-arrow`)?.classList.remove("hidden-arrow");
 
         // Change the currently selected thumbnail
         document.querySelector(`.${targetGallery}__selector-container .selected`).classList.remove("selected");
-        e.target.parentElement.classList.add("selected");
+        document.querySelector(`.${targetGallery}__selector[data-image-index=${selectedImage}]`).classList.add("selected");
     }
 
     return (
@@ -63,16 +70,16 @@ const Gallery = () => {
             </div>
             <div className="Gallery__selector-wrapper">
                 <div className="Gallery__selector-container">
-                    <div className="Gallery__selector selected" onClick={ (e) => changeSelected(e, "image1") }>
+                    <div className="Gallery__selector selected" onClick={ () => changeSelected("image1") } data-image-index={ "image1" }>
                         <img src={ product1Thumbnail } alt="selector1" />
                     </div>
-                    <div className="Gallery__selector" onClick={ (e) => changeSelected(e, "image2") }>
+                    <div className="Gallery__selector" onClick={ () => changeSelected("image2") } data-image-index={ "image2" }>
                         <img src={ product2Thumbnail } alt="selector2" />
                     </div>
-                    <div className="Gallery__selector" onClick={ (e) => changeSelected(e, "image3") }>
+                    <div className="Gallery__selector" onClick={ () => changeSelected("image3") } data-image-index={ "image3" }>
                         <img src={ product3Thumbnail } alt="selector3" />
                     </div>
-                    <div className="Gallery__selector" onClick={ (e) => changeSelected(e, "image4") }>
+                    <div className="Gallery__selector" onClick={ () => changeSelected("image4") } data-image-index={ "image4" }>
                         <img src={ product4Thumbnail } alt="selector4" />
                     </div>
                 </div>
