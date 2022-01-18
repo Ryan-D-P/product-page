@@ -1,12 +1,18 @@
+import { useEffect } from "react";
 import close from "./images/icon-close.svg";
 import "./LightboxGallery.css";
 
-const LightboxGallery = ({ changeSelectedByArrow, changeSelected, left, right, product1, product2, product3, product4, product1Thumbnail, product2Thumbnail, product3Thumbnail, product4Thumbnail }) => {
+const LightboxGallery = ({ setLightbox, arrowImages, changeSelectedByArrow, changeSelected, left, right, product1, product2, product3, product4, product1Thumbnail, product2Thumbnail, product3Thumbnail, product4Thumbnail }) => {
+    // Run function when lightbox is opened to get the current image index
+    useEffect(() => {
+        console.log(" ");
+    }, []);
+
     return (
         <div className="LightboxGallery">
             <div className="LightboxGallery__flex-container">
                 <div className="LightboxGallery__flex-row LightboxGallery__close-row">
-                    <div className="LightboxGallery__close-container">
+                    <div className="LightboxGallery__close-container" onClick={ () => setLightbox(false) }>
                         <img src={ close } alt="close.svg" />
                     </div>
                 </div>

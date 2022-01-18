@@ -10,8 +10,12 @@ import product3Thumbnail from "./images/image-product-3-thumbnail.jpg";
 import product4Thumbnail from "./images/image-product-4-thumbnail.jpg";
 import "./Gallery.css";
 import LightboxGallery from "./LightboxGallery";
+import { useState } from "react/cjs/react.development";
 
 const Gallery = () => {
+    // State to show/hide the lightbox gallery
+    const [lightbox, setLightbox] = useState(false);
+
     // Object to display and change images using directional arrows
     const arrowImages = {
         imageList: ["image1", "image2", "image3", "image4"],
@@ -56,7 +60,7 @@ const Gallery = () => {
 
     return (
         <section className="Gallery">
-            <div className="Gallery__selected-image">
+            <div className="Gallery__selected-image" onClick={ () => window.screen.width >= 1440 && setLightbox(true) }>
                 <div className="Gallery__selector-arrow-left hidden-arrow" onClick={ (e) => changeSelectedByArrow(e) } data-direction={ "left" }>
                     <img src={ left } alt="left-arrow" data-direction={ "left" } />
                 </div>
@@ -85,7 +89,10 @@ const Gallery = () => {
                 </div>
             </div>
 
-            <LightboxGallery changeSelectedByArrow={ changeSelectedByArrow } changeSelected={ changeSelected } left={ left } right={ right } product1={ product1 } product2={ product2 } product3={ product3 } product4={ product4 } product1Thumbnail={ product1Thumbnail } product2Thumbnail={ product2Thumbnail } product3Thumbnail={ product3Thumbnail } product4Thumbnail={ product4Thumbnail } />
+            {
+                lightbox && <LightboxGallery setLightbox={ setLightbox } arrowImages={ arrowImages } changeSelectedByArrow={ changeSelectedByArrow } changeSelected={ changeSelected } left={ left } right={ right } product1={ product1 } product2={ product2 } product3={ product3 } product4={ product4 } product1Thumbnail={ product1Thumbnail } product2Thumbnail={ product2Thumbnail } product3Thumbnail={ product3Thumbnail } product4Thumbnail={ product4Thumbnail } />
+            }
+
         </section>
     );
 }
