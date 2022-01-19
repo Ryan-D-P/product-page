@@ -44,10 +44,10 @@ function App() {
         <Navbar openCartMenu={ openCartMenu } cartProducts={ cartProducts } />
         <Routes>
           <Route exact path="/" element={ <Collections closeCartMenu={ closeCartMenu } currentQuantity={ currentQuantity } updateQuantity={ updateQuantity } addProduct={ addProduct } cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } /> } />
-          <Route exact path="/men" element={ <Men /> } />
-          <Route exact path="/women" element={ <Women /> } />
-          <Route exact path="/about" element={ <About /> } />
-          <Route exact path="/contact" element={ <Contact /> } />
+          <Route exact path="/men" element={ <Men cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } closeCartMenu={ closeCartMenu } /> } />
+          <Route exact path="/women" element={ <Women cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } closeCartMenu={ closeCartMenu } /> } />
+          <Route exact path="/about" element={ <About cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } closeCartMenu={ closeCartMenu } /> } />
+          <Route exact path="/contact" element={ <Contact cartProducts={ cartProducts } deleteProduct={ deleteProduct } isActive={ isActive } closeCartMenu={ closeCartMenu } /> } />
         </Routes>
       </div>
     </BrowserRouter>

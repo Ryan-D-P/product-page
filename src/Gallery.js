@@ -34,19 +34,6 @@ const Gallery = () => {
         // Change the shown (target gallery) image to the selected thumbnail
         document.querySelector(`.${targetGallery}__selected-image .show-selected`).classList.remove("show-selected");
         document.querySelectorAll(`.${targetGallery}__image`)[currentIndex].classList.add("show-selected");
-
-        // Ensure displayed arrow icons are consistent with newly selected image index
-        const leftArrowDOM = document.querySelector(`.${targetGallery}__selector-arrow-left`), rightArrowDOM = document.querySelector(`.${targetGallery}__selector-arrow-right`);
-
-        if (currentIndex === "0") {
-            leftArrowDOM.classList.add("hidden-arrow");
-            rightArrowDOM.classList.remove("hidden-arrow");
-        }
-        else if (currentIndex === "3") {
-            rightArrowDOM.classList.add("hidden-arrow");
-            leftArrowDOM.classList.remove("hidden-arrow");
-        }
-        else document.querySelector(`.${targetGallery}__selected-image .hidden-arrow`)?.classList.remove("hidden-arrow");
         
         // Change the currently selected thumbnail
         document.querySelector(`.${targetGallery}__selector-container .selected`).classList.remove("selected");
@@ -59,10 +46,10 @@ const Gallery = () => {
     return (
         <section className="Gallery">
             <div className="Gallery__selected-image" onClick={ () => window.screen.width >= 1440 && setLightbox(true) }>
-                <div className="Gallery__selector-arrow-left hidden-arrow" onClick={ (e) => changeSelectedByArrow(e) } data-direction={ "left" }>
+                <div className={ `Gallery__selector-arrow-left ${imageIndex === 0 && "hidden-arrow"}` } onClick={ (e) => changeSelectedByArrow(e) } data-direction={ "left" }>
                     <img src={ left } alt="left-arrow" data-direction={ "left" } />
                 </div>
-                <div className="Gallery__selector-arrow-right" onClick={ (e) => changeSelectedByArrow(e) } data-direction={ "right" }>
+                <div className={ `Gallery__selector-arrow-right ${imageIndex === 3 && "hidden-arrow"}` } onClick={ (e) => changeSelectedByArrow(e) } data-direction={ "right" }>
                     <img src={ right } alt="right-arrow" data-direction={ "right" } />
                 </div>
                 <img src={ product1 } alt="selected-image1" className="Gallery__image show-selected" data-image-index={ "0" } />

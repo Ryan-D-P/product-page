@@ -41,7 +41,19 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 6rem 30rem;
+  min-height: 100vh;
+}
+
+.route-page-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 6rem 0rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .route-page-container {
+    padding: 6rem 30rem;
+  }
 }
 
 h2 {
