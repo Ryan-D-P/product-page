@@ -21,8 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-README-template.md
-README.md
 style-guide.md
 design/active-states-basket-empty.jpg
 design/active-states-basket-filled.jpg
