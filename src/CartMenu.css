@@ -1,5 +1,6 @@
 .inactive {
     width: 0;
+    height: 0;
     max-height: 0;
     opacity: 0;
 }
@@ -11,11 +12,12 @@
 .active {
     width: min(90%, 500px);
     max-height: 1000px;
+    height: auto;
     opacity: 1;
 }
 
 .CartMenu {
-    transition: width ease-in-out 500ms, max-height ease-in-out 750ms, opacity ease-in-out 500ms;
+    transition: width linear 300ms, max-height linear 800ms, height linear 800ms;
     background-color: hsl(0, 0%, 100%);
     position: absolute;
     z-index: 1;
